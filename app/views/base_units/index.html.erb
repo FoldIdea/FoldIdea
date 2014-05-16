@@ -1,0 +1,32 @@
+<% title 'Tray Types' %>
+<% body_style 'narrow' %>
+<h1>Tray Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Base Size</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%- @base_units.each do |base_unit| -%>
+      <tr>
+        <td><%= base_unit.name %></td>
+        <td><%= base_unit.base_width %>x<%= base_unit.base_length %>mm</td>
+        <td>
+          <%= link_to 'Trays', base_unit %>
+          <div class="admin">
+            <%= link_to 'Edit', edit_base_unit_path(base_unit) %> |
+            <%= link_to 'Destroy', base_unit, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
+
+<p class="actions"><%= link_to 'Add Tray Type', new_base_unit_path %></p>
+

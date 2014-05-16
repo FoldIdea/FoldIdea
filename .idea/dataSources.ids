@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails FoldIdea: development" uuid="93277213-e414-4028-99c8-6b353b9eef6b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails FoldIdea: test" uuid="13516981-28c1-42c3-8e95-f5a41cc06d35">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails FoldIdea: production" uuid="7fb71314-a7e1-4ca9-b00d-4fdd3e338263">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

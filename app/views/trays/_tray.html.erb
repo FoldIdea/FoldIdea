@@ -1,0 +1,11 @@
+<tr>
+  <td><%= tray.files %>x<%= tray.ranks %></td>
+  <td><%= tray_gap(tray) %>% gap</td>
+  <td>
+    <%= link_to 'Display', tray %>
+    <div class="admin">
+      <%= link_to 'Edit', edit_tray_path(tray) %> |
+      <%= link_to 'Destroy', tray, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </td>
+</tr>

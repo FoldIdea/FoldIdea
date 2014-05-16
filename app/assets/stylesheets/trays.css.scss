@@ -1,0 +1,67 @@
+// Place all the styles related to the trays controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$ulap-size: 9mm;
+$rim-size: 4mm;
+$ftab-ht: calc(17mm + 1px);
+$cnr-wd: calc(13mm + 1px);
+$tab-size: calc(17mm + 2px);
+$fold-color: rgba(0,0,0,0.85);
+
+.tray {
+  position: relative;
+
+  div { border: solid 1px transparent; vertical-align: top; }
+
+  .tr_ftab { height: $ftab-ht; }
+  .tr_cnr { float: left; width: $cnr-wd; height: $ftab-ht; background-color: white; }
+  .tr_flap { float: left; width: $rim-size; height: $ftab-ht; border-color: black; background-color: white; }
+  .tr_fedge {
+    float: left; min-width: 2mm; border: none; height: $tab-size;
+
+    .tr_fulap { width: 100%; border-left: none; border-right: none; height: $ulap-size; border-color: black; background-color: white; }
+    .tr_frim { width: 100%; height: $rim-size; border-left: none; border-right: none; border-color: black; }
+  }
+  .tr_rmid {
+     min-height: 2mm;
+
+    .tr_rulap { float: left; width: $ulap-size; height: 100%; border-color: black; background-color: white; }
+    .tr_rrim { float: left; width: $rim-size; height: 100%; }
+    .tr_file { float: left; min-width: 2mm; height: 100%; border-color: $fold-color; border-style: dotted; }
+  }
+
+  .tr_bg { position: absolute; top: $ulap-size; left: $ulap-size; overflow: hidden; border: none; z-index: -1; padding: $ulap-size; background-color: green; }
+  // borders
+  .tr_ftab.w_top {
+    border-bottom: none;
+
+    div { border-bottom: none; }
+    .tr_cnr:first-child { border-style: solid none none solid; border-color: white; }
+    .tr_flap:first-child { border-style: solid none none solid; }
+    .tr_fulap { border-style: solid none none; }
+    .tr_frim { border-style: dashed none none; border-color: $fold-color; }
+    .tr_frim:last-child { border-style: dashed none none; border-color: $fold-color; background-position: -10mm -5mm; }
+    .tr_flap:last-child { border-style: solid solid none none; }
+    .tr_cnr:last-child { border-style: solid solid none none; border-color: white; }
+  }
+  .tr_rulap:first-child { border-style: solid none solid solid; border-color: black; }
+  .tr_rrim.w_lfo { border-style: solid none solid dashed; border-color: black $fold-color; }
+  .tr_rrim.w_lf { border-style: dotted none dotted dashed; border-color: black $fold-color; background-position: -5mm -10mm; }
+  .tr_rrim.w_rt { border-style: dotted dashed dotted none; border-color: black $fold-color; background-position: -5mm -10mm; }
+  .tr_rrim.w_rto { border-style: solid dashed solid none; border-color: black $fold-color; }
+  .tr_rulap:last-child { border-style: solid solid solid none; border-color: black; }
+  .tr_ftab.w_bot {
+    div { border-top: none; }
+    .tr_cnr:first-child { border-style: none none solid solid; border-color: white; }
+    .tr_flap:first-child { border-style: none none solid solid; }
+    .tr_frim:first-child { border-style: none none dashed; border-color: $fold-color; background-position: -10mm -5mm; }
+    .tr_frim { border-style: none none dashed; border-color: $fold-color; }
+    .tr_fulap {
+      border-style: none none solid; border-color: $fold-color; height: calc(9mm - 1px);
+      overflow: hidden; text-align: center; font-size: 16px; line-height: $ulap-size;
+    }
+    .tr_flap:last-child { border-style: none solid solid none; }
+    .tr_cnr:last-child { border-style: none solid solid none; border-color: white; }
+  }
+}

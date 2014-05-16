@@ -1,0 +1,29 @@
+<% title "#{@base_unit.name} Trays" %>
+<% body_style 'narrow base_unit_show' %>
+<h1><%= @base_unit.name %> Trays</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p class="data">
+  <strong>Base Size:</strong>
+  <%= @base_unit.base_width %>x<%= @base_unit.base_length %>mm
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Files x Ranks</th>
+      <th>Spacing</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @base_unit.trays %>
+  </tbody>
+</table>
+<%= render 'trays/form' %>
+
+<p class="actions">
+    <%= link_to 'Edit', edit_base_unit_path(@base_unit) %> |
+    <%= link_to 'Back', base_units_path %>
+</p>

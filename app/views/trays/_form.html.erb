@@ -1,0 +1,21 @@
+<%= form_for([@base_unit, @base_unit.trays.build]) do |f| %>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <%= f.number_field :files, min: 1, class: 'short' %>
+        x
+        <%= f.number_field :ranks, min: 1, class: 'short' %>
+      </td>
+      <td>
+        <%- Tray::VALID_GAP_PERCENTS.each do |pct| -%>
+          <%= f.radio_button :gap_percent, pct %><%= f.label :gap_percent, "#{tray_gap(pct)}%", value: pct %><br/>
+        <%- end -%>
+      </td>
+      <td>
+        <%= f.submit 'Add' %>
+      </td>
+    </tr>
+  </tbody>
+ </table>
+<% end %>

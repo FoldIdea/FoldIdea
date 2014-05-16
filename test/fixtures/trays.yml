@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  base_unit_id: 
+  files: 1
+  ranks: 1
+  gap_percent: 1.5
+
+two:
+  base_unit_id: 
+  files: 1
+  ranks: 1
+  gap_percent: 1.5

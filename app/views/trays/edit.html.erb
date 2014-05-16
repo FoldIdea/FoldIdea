@@ -1,0 +1,31 @@
+<% title "Edit #{@tray.base_unit.name} Tray" %>
+<% body_style 'narrow' %>
+<h1>Editing <%= @tray.base_unit.name %> Tray</h1>
+
+<%= form_for @tray do |f| %>
+	<p>
+		<%= f.label :files %><br/>
+		<%= f.number_field :files, min: 1 %>
+	</p>
+
+	<p>
+		<%= f.label :ranks %><br/>
+		<%= f.number_field :ranks, min: 1 %>
+	</p>
+
+	<p>
+		<%= f.label :gap_percent %><br/>
+	  <%- Tray::VALID_GAP_PERCENTS.each do |pct| -%>
+	    <%= f.radio_button :gap_percent, pct %><%= f.label :gap_percent, "#{tray_gap(pct)}%", value: pct %><br/>
+	  <%- end -%>
+	</p>
+
+	<p>
+		<%= f.submit 'Save' %>
+	</p>
+<% end %>
+
+<p class="actions">
+  <%= link_to 'Back', @tray.base_unit %>
+</p>
+

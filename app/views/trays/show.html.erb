@@ -1,0 +1,7 @@
+<% title "#{@tray.base_unit.name} #{@tray.files}x#{@tray.ranks} Tray" %>
+<%= render 'tray_display', tray:@tray %>
+
+<p class="actions">
+	<%= link_to_function 'Print', 'window.print();' %> |
+  <%= link_to 'Back', @tray.base_unit %>
+</p>

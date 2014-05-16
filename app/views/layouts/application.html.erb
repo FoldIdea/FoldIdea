@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) || '' %> - FoldIdea</title>
+  <link href='http://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= yield :styles %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= yield :body_style %>">
+<div id="hdr">
+  <div class="lyo_cnt">
+     <%= link_to root_path, id: 'logo', class: (@animated_logo ? 'anim' : nil) do %>
+       <%= site_name %>
+     <% end %>
+   </div>
+</div>
+<div id="hdr_gap"></div>
+<div id="content">
+  <div class="lyo_cnt">
+    <%= yield %>
+  </div>
+</div>
+<div id="ftr_gap"></div>
+<div id="ftr">
+  <div class="lyo_cnt">
+    Copyright &copy 2014 <%= site_name %>
+  </div>
+</div>
+
+</body>
+</html>

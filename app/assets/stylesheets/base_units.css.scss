@@ -1,0 +1,49 @@
+// Place all the styles related to the BaseUnits controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.base_unit_show {
+  th:first-child, td:first-child { width: 40%; }
+  th:last-child, td:last-child { width: 30%; }
+}
+
+.measure_grid {
+  position: relative;
+  width: 60mm; height: 60mm;
+  padding: 10mm 10mm 16mm 16mm;
+
+  .mg_axes {
+    position: absolute; left: 16mm; top: 10mm; width: calc(60mm - 1px); height: calc(60mm - 1px);
+    border-color: black;
+    border-style: none none solid solid;
+    border-width: 1px;
+    color: #BBBBBB; text-align: center; font-size: 18px; font-weight: bold; line-height: 60mm;
+  }
+
+  ul { position: absolute; list-style-type: none; margin: 0; padding: 0; }
+  ul li { margin: 0; padding: 0; }
+  ul.mg_ylabels {
+    left: 0; top: 8mm;
+
+    li { height: 10mm; vertical-align: top; font-size: 11px; }
+  }
+  ul.mg_yaxis {
+    left: 6mm; top: 10mm;
+
+    li { margin-left: 7mm; width: 3mm; border-top: solid 1px black; height: calc(1mm - 1px); }
+    li.five { margin-left: 4mm; width: 6mm; }
+    li.ten { margin-left: 0mm; width: 10mm; }
+  }
+  ul.mg_xlabels {
+    left: 11mm; top: 80mm;
+
+    li { float: left; width: 10mm; text-align: center; font-size: 11px; }
+  }
+  ul.mg_xaxis {
+    left: 16mm; top: 70mm;
+
+    li { float: left; height: 3mm; border-left: solid 1px black; width: calc(1mm - 1px); }
+    li.five { height: 6mm; }
+    li.ten { height: 10mm; }
+  }
+}

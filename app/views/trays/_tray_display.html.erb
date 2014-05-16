@@ -1,0 +1,40 @@
+<div class="tray">
+  <style type="text/css" scoped>
+	  .tr_file { width: <%= tray.file_size %>mm; }
+	  .tr_rank { height: <%= tray.rank_size %>mm; }
+  </style>
+	<div class="tr_bg tr_rank tr_file">
+		<%= image_tag 'grass_background_yellow.jpg' %>
+	</div>
+  <div class="tr_ftab w_top clearfix">
+    <div class="tr_cnr"></div>
+    <div class="tr_flap"></div>
+    <div class="tr_fedge tr_file">
+      <div class="tr_fulap"></div>
+      <div class="tr_frim"></div>
+      <div class="tr_frim"></div>
+    </div>
+    <div class="tr_flap"></div>
+    <div class="tr_cnr"></div>
+  </div>
+  <div class="tr_rmid tr_rank clearfix">
+    <div class="tr_rulap"></div>
+    <div class="tr_rrim w_lfo"></div>
+    <div class="tr_rrim w_lf"></div>
+    <div class="tr_file"></div>
+    <div class="tr_rrim w_rt"></div>
+    <div class="tr_rrim w_rto"></div>
+    <div class="tr_rulap"></div>
+  </div>
+  <div class="tr_ftab w_bot clearfix">
+    <div class="tr_cnr"></div>
+    <div class="tr_flap"></div>
+    <div class="tr_fedge tr_file">
+      <div class="tr_frim"></div>
+      <div class="tr_frim"></div>
+      <div class="tr_fulap"><%= tray.base_unit.name %> <%= tray.files %>x<%= tray.ranks %></div>
+    </div>
+    <div class="tr_flap"></div>
+    <div class="tr_cnr"></div>
+  </div>
+</div>
