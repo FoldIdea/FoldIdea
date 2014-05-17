@@ -10,4 +10,9 @@ module ApplicationHelper
   def body_style(style)
     content_for :body_style, style.to_s
   end
+
+  def zone(name, class_name = nil)
+    content_for :zone_name, name
+    content_for :zone_class, (class_name || "z_#{name.downcase.gsub(' ','_')}" )
+  end
 end

@@ -14,7 +14,10 @@
      <%= link_to root_path, id: 'logo', class: (@animated_logo ? 'anim' : nil) do %>
        <%= site_name %>
      <% end %>
-   </div>
+	   <div id="zone" class="<%= yield(:zone_class).presence || "z_#{controller_name}" %>">
+		   <%=h yield(:zone_name).presence || controller_name.titleize %>
+	   </div>
+  </div>
 </div>
 <div id="hdr_gap"></div>
 <div id="content">

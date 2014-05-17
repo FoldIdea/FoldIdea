@@ -9,6 +9,11 @@ $cnr-wd: calc(13mm + 1px);
 $tab-size: calc(17mm + 2px);
 $fold-color: rgba(0,0,0,0.85);
 
+#zone.z_trays {
+  background: transparent image-url('zone_icons.png') right center no-repeat;
+  background-size: 50px 50px;
+}
+
 .tray {
   position: relative;
 
