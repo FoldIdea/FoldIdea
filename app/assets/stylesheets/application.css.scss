@@ -1,3 +1,32 @@
+// media
+$break-wide-web: 1600px;
+$break-web: 1200px;
+$break-tablet-ls: 1024px;
+$break-tablet: 768px;
+$break-phone-ls: 480px;
+$break-phone: 320px;
+
+@mixin respond-to($media) {
+  @if $media == wide-web {
+    @media only screen and (min-width: $break-wide-web + 1) { @content; }
+  }
+  @else if $media == web {
+    @media only screen and (min-width: $break-web + 1) and (max-width: $break-wide-web - 1) { @content; }
+  }
+  @else if $media == tablet-ls {
+    @media only screen and (min-width: $break-tablet-ls) and (max-width: $break-web - 1) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-tablet) and (max-width: $break-tablet-ls - 1) { @content; }
+  }
+  @else if $media == phone {
+    @media only screen and (max-width: $break-tablet - 1) { @content; }
+  }
+  @else if $media == phone-ls {
+    @media only screen and (min-width: $break-phone-ls) and (max-width: $break-tablet - 1) { @content; }
+  }
+}
+
 // colors
 $background: white;
 $foreground: #222222;
@@ -11,7 +40,7 @@ $highlight-fonts: 'Nova Square',Verdana,Arial,Helvetica,sans-serif;
 body {
   background-color: $background; color: $foreground;
   font-family: $standard-fonts;
-  line-height: 18px;
+  line-height: 18px; min-width: 340px;
 }
 .smcaps { display: inline-block; text-transform: uppercase; font-size: 90%; }
 .smcaps::first-letter { text-transform: uppercase; font-size: 111%; }
@@ -19,6 +48,20 @@ h1 { font-family: $highlight-fonts; font-size: 30px; text-align: center; }
 a { text-decoration: none; color: $link-color; }
 a:visited { color: darken($link-color, 15%); }
 a:hover { text-decoration: underline; }
+.touch a { text-decoration: underline; }
+a.btn, .touch a.tbtn {
+  display: inline-block;
+  text-decoration: none;
+  color: $foreground;
+  border: solid 1px lighten($foreground, 20%);
+  border-radius: 5px;
+  padding: 2px 7px;
+  vertical-align: center;
+}
+a.btn:visited, .touch a.tbtn:visited { color: $foreground; }
+a.btn:hover, .touch a.tbtn:hover { box-shadow: 2px 2px 3px $shadow-color; text-decoration: none; color: $link-color; }
+a.btn:active, .touch a.tbtn:active { box-shadow: 2px 2px 3px $shadow-color inset; background-color: #eeeeee; color: $link-color; }
+
 p, ul, ol, dl { margin: 3px 0; }
 dl dt { display: inline-block; width: 24%; margin-right: 1%; text-align: right; font-weight: bold; }
 dl dd { display: inline-block; width: 74%; text-align: left; }
@@ -32,65 +75,52 @@ dl dd { display: inline-block; width: 74%; text-align: left; }
 
 // header
 #hdr {
-  position: fixed; top: 0; left: 0; height: 65px; width: 100%;
-  padding: 10px 0 4px;
-  background-color: $background;
-  border-bottom: solid 1px $border-color;
-  box-shadow: 0 3px 8px $shadow-color;
-  z-index: 99;
-}
-#logo {
-  font-family: $highlight-fonts; font-size: 35px; font-weight: bold;
-  display: block; float: left;
+  position: fixed;
+  top: 0px; left: 0px; width: 100%; height: 92px; padding-top: 10px; min-width: 340px;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.9) 44%, rgba(255, 255, 255, 0) 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.9) 44%, rgba(255, 255, 255, 0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.9) 44%, rgba(255, 255, 255, 0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.9) 44%, rgba(255, 255, 255, 0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 44%, rgba(255, 255, 255, 0) 100%); /* W3C */
 
-  div::first-letter {
-    font-size: 40px;
+  div {
+    display: inline-block; float: left; vertical-align: top;
+    background-color: white; border-style: solid none; border-color: black; border-width: 1px;
+    height: 45px; line-height: 45px; font-size: 35px;
   }
-  .smcaps {
-    height: 30px;
-    margin-top: 8px;
-    padding: 10px 3px 0;
-    text-align: center;
-    width: 95px;
-    border: solid 1px $foreground;
+  .hdr_lt, .hdr_rt {
+    @include respond-to(wide-web) { width: calc(50% - 800px); }
+    @include respond-to(web) { width: calc(50% - 600px); }
+    @include respond-to(tablet-ls) { width: calc(50% - 512px); }
+    @include respond-to(tablet) { width: calc(50% - 384px); }
+    @include respond-to(phone) { width: calc(50% - 170px); }
+    @include respond-to(phone-ls) { width: calc(50% - 240px); }
   }
-  .w_lt { // FOLD
-    border-right: dotted 1px lighten($foreground, 50%);
-    transform: skewY(160deg); -webkit-transform: skewY(160deg);
+  .hdr_lt { margin-top: 44px; }
+  .hdr_fold {
+    width: 89px; margin-top: 22px;
+    border-style: solid dotted solid dashed;
+    font-family: $highlight-fonts; cursor: pointer;
+    transform: skewY(154deg); -webkit-transform: skewY(154deg);
   }
-  .w_rt { // IDEA
-    border-left: none;
-    transform: skewY(20deg); -webkit-transform: skewY(20deg);
-  }
-}
-#zone {
-  float:right; height: 50px; padding-right: 55px; margin-top: 7px;
-  line-height: 50px; font-size: 18px; font-family: $highlight-fonts;
-}
-@keyframes foldText {
-  from { transform: skewY(180deg); }
-  to { transform: skewY(160deg); }
-}
-@-webkit-keyframes foldText {
-  from { -webkit-transform: skewY(180deg); }
-  to { -webkit-transform: skewY(160deg); }
-}
-@keyframes ideaText {
-  from { transform: skewY(0deg); }
-  to { transform: skewY(20deg); }
-}
-@-webkit-keyframes ideaText {
-  from { -webkit-transform: skewY(0deg); }
-  to { -webkit-transform: skewY(20deg); }
-}
-#logo.anim {
-  .w_lt { // FOLD
-    transform: skewY(180deg); -webkit-transform: skewY(180deg);
-    animation: foldText 0.5s linear 2s 1 normal forwards; -webkit-animation: foldText 0.5s linear 2s 1 normal forwards;
-  }
-  .w_rt { // IDEA
-    transform: skewY(0deg); -webkit-transform: skewY(0deg);
-    animation: ideaText 0.5s linear 2s 1 normal forwards; -webkit-animation: ideaText 0.5s linear 2s 1 normal forwards;
+  .hdr_main {
+    position: relative;
+    @include respond-to(wide-web) { width: 1509px; }
+    @include respond-to(web) { width: 1109px; }
+    @include respond-to(tablet-ls) { width: 933px; }
+    @include respond-to(tablet) { width: 677px; }
+    @include respond-to(phone) { width: 249px; }
+    @include respond-to(phone-ls) { width: 389px; }
+
+    .hdr_logo_rt {
+      font-family: $highlight-fonts; cursor: pointer;
+      transform: scaleX(1.25); -webkit-transform: scaleX(1.25);
+      margin-left: 10px;
+    }
+    #zone {
+      float:right; height: 45px; padding-right: 55px; border: none;
+      line-height: 45px; font-size: 18px; font-family: $highlight-fonts;
+    }
   }
 }
 a#logo, a#logo:hover, a#logo:visited { text-decoration: none; background-color: $background; color: $foreground; }

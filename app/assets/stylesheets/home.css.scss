@@ -2,7 +2,36 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#zone.z_home { display: none; }
+@keyframes hdrFold {
+  from { transform: skewY(180deg); margin-top: 0; }
+    to { transform: skewY(154deg); margin-top: 22px; }
+}
+@-webkit-keyframes hdrFold {
+  from { -webkit-transform: skewY(180deg); margin-top: 0; }
+    to { -webkit-transform: skewY(154deg); margin-top: 22px; }
+}
+@keyframes hdrLt {
+  from { margin-top: 0; }
+    to { margin-top: 44px; }
+}
+@-webkit-keyframes hdrLt {
+  from { margin-top: 0; }
+    to { margin-top: 44px; }
+}
+.anim_hdr #hdr {
+  .hdr_lt {
+    margin-top: 0;
+    animation: 0.5s linear 2s normal forwards 1 hdrLt;
+    -webkit-animation: 0.5s linear 2s normal forwards 1 hdrLt;
+  }
+  .hdr_fold {
+    margin-top: 0;
+    transform: skewY(180deg); -webkit-transform: skewY(180deg);
+    animation: 0.5s linear 2s normal forwards 1 hdrFold;
+    -webkit-animation: 0.5s linear 2s normal forwards 1 hdrFold;
+  }
+}
+.anim_hdr #zone { display: none; }
 
 .pick_list {
   margin: 15px 0 0; padding: 0; list-style-type: none; text-align: center;

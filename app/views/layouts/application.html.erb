@@ -10,16 +10,16 @@
 </head>
 <body class="<%= yield :body_style %>">
 <div id="hdr">
-  <div class="lyo_cnt">
-     <%= link_to root_path, id: 'logo', class: (@animated_logo ? 'anim' : nil) do %>
-       <%= site_name %>
-     <% end %>
-	   <div id="zone" class="<%= yield(:zone_class).presence || "z_#{controller_name}" %>">
-		   <%=h yield(:zone_name).presence || controller_name.titleize %>
-	   </div>
+  <div class="hdr_lt"></div>
+  <div class="hdr_fold smcaps" onclick="location='/';">FOLD</div>
+  <div class="hdr_main">
+    <span class="hdr_logo_rt smcaps" onclick="location='/';">IDEA</span>
+    <div id="zone" class="<%= yield(:zone_class).presence || "z_#{controller_name}" %>">
+      <%=h yield(:zone_name).presence || controller_name.titleize %>
+    </div>
   </div>
+  <div class="hdr_rt"></div>
 </div>
-<div id="hdr_gap"></div>
 <div id="content">
   <div class="lyo_cnt">
     <%= yield %>
