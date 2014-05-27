@@ -140,7 +140,7 @@ $fold-shadow: #eeeeee;
     }
     #acct {
       float: right; height: 45px; width: 45px; border: none;
-      background: transparent image_url('acct_icons.png') left top no-repeat;
+      background: transparent image-url('acct_icons.png') left top no-repeat;
     }
     #acct.w_login { background-position: -45px 0; }
 //    #zone {
