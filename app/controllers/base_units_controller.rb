@@ -1,5 +1,6 @@
 class BaseUnitsController < ApplicationController
   before_action :set_base_unit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /base_units
   # GET /base_units.json

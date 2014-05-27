@@ -49,5 +49,6 @@ table tbody tr:hover { background-color: #eeeeee; }
 table tbody td { text-align: center; padding: 3px 0; border-bottom: solid 1px $border-color; margin-bottom: 3px; }
 table .admin { font-size: 9px; }
 p.data, p.actions { text-align: center; }
+p.actions { margin-top: 10px; }
 
 input[type=text].short, input[type=number].short { width: 50px; }

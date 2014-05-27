@@ -1,4 +1,5 @@
 FoldIdea::Application.routes.draw do
+  devise_for :users
   resources :base_units do
     resources :trays, shallow: true
   end

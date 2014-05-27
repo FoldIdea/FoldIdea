@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= yield(:title) || '' %> - FoldIdea</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <link href='http://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -14,11 +15,18 @@
   <div class="hdr_fold smcaps" onclick="location='/';">FOLD</div>
   <div class="hdr_main">
     <span class="hdr_logo_rt smcaps" onclick="location='/';">IDEA</span>
-    <div id="zone" class="<%= yield(:zone_class).presence || "z_#{controller_name}" %>">
-      <%=h yield(:zone_name).presence || controller_name.titleize %>
-    </div>
+    <!--<div id="zone" class="<%= yield(:zone_class).presence || "z_#{controller_name}" %>">-->
+      <!--<%=h yield(:zone_name).presence || controller_name.titleize %>-->
+    <!--</div>-->
+	  <%- if user_signed_in? -%>
+	    <%= link_to '', destroy_user_session_url, method:'delete', id:'acct', class:'w_login' %>
+	  <%- else -%>
+	    <%= link_to '', new_user_session_url, id:'acct', class:'w_logout' %>
+	  <%- end -%>
   </div>
   <div class="hdr_rt"></div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 </div>
 <div id="content">
   <div class="lyo_cnt">

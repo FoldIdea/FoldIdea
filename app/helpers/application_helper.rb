@@ -12,6 +12,7 @@ module ApplicationHelper
   end
 
   def zone(name, class_name = nil)
+    name = '__hide__' if name.nil?
     content_for :zone_name, name
     content_for :zone_class, (class_name || "z_#{name.downcase.gsub(' ','_')}" )
   end
