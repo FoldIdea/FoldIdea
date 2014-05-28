@@ -11,34 +11,20 @@
     to { margin-top: 44px; }
 }
 @keyframes hdrFold {
-  from { transform: skewY(180deg); margin-top: 0; }
-    to { transform: skewY(154deg); margin-top: 22px;
-         background: -moz-linear-gradient(left, #ffffff 57px, $fold-shadow 85px); /* FF3.6+ */
-         background: -o-linear-gradient(left, #ffffff 57px, $fold-shadow 85px); /* Opera 11.10+ */
-         background: -ms-linear-gradient(left, #ffffff 57px, $fold-shadow 85px); /* IE10+ */
-         background: linear-gradient(to right, #ffffff 57px, $fold-shadow 85px); /* W3C */
-       }
+  from { transform: skewY(180deg); margin-top: 0; background-color: #ffffff; }
+    to { transform: skewY(154deg); margin-top: 22px; background-color: $fold-shadow; }
 }
 @-webkit-keyframes hdrFold {
-  from { -webkit-transform: skewY(180deg); margin-top: 0; }
-    to { -webkit-transform: skewY(154deg); margin-top: 22px;
-         background: -webkit-linear-gradient(left, #ffffff 57px, $fold-shadow 85px); /* Chrome10+,Safari5.1+ */
-         background: linear-gradient(to right, #ffffff 57px, $fold-shadow 85px); /* W3C */
-       }
+  from { -webkit-transform: skewY(180deg); margin-top: 0; background-color: #ffffff; }
+    to { -webkit-transform: skewY(154deg); margin-top: 22px; background-color: $fold-shadow; }
 }
 @keyframes hdrMain {
-  from { background: #ffffff; }
-    to { background: -moz-linear-gradient(left, $fold-shadow 4px, #ffffff 32px); /* FF3.6+ */
-         background: -o-linear-gradient(left, $fold-shadow 4px, #ffffff 32px); /* Opera 11.10+ */
-         background: -ms-linear-gradient(left, $fold-shadow 4px, #ffffff 32px); /* IE10+ */
-         background: linear-gradient(left, $fold-shadow 4px, #ffffff 32px); /* W3C */
-       }
+  from { background-color: #ffffff; }
+    to { background-color: $fold-shadow; }
 }
 @-webkit-keyframes hdrMain {
-  from { background: #ffffff; }
-  to { background: -webkit-linear-gradient(left, $fold-shadow 4px, #ffffff 32px); /* Chrome10+,Safari5.1+ */
-       background: linear-gradient(left, $fold-shadow 4px, #ffffff 32px); /* W3C */
-    }
+  from { background-color: #ffffff; }
+    to { background-color: $fold-shadow; }
 }
 .anim_hdr #hdr {
   .hdr_lt {
@@ -47,15 +33,14 @@
     -webkit-animation: 0.5s linear 2s normal forwards 1 hdrLt;
   }
   .hdr_fold {
-    margin-top: 0; background: #ffffff;
+    margin-top: 0;
     transform: skewY(180deg); -webkit-transform: skewY(180deg);
-    animation: 0.5s linear 2s normal forwards 1 hdrFold;
-    -webkit-animation: 0.5s linear 2s normal forwards 1 hdrFold;
+    -webkit-animation: 0.5s linear 2s normal both 1 hdrFold;
+    animation: 0.5s linear 2s normal both 1 hdrFold;
   }
   .hdr_main {
-    background: #ffffff;
-    animation: 0.5s linear 2s normal forwards 1 hdrMain;
-    -webkit-animation: 0.5s linear 2s normal forwards 1 hdrMain;
+    -webkit-animation: 0.5s linear 2s normal both 1 hdrMain;
+    animation: 0.5s linear 2s normal both 1 hdrMain;
   }
 }
 .anim_hdr #zone { display: none; }
