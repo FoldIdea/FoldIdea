@@ -45,6 +45,7 @@ body {
 }
 .smcaps { display: inline-block; text-transform: uppercase; font-size: 90%; }
 .smcaps::first-letter { text-transform: uppercase; font-size: 111%; }
+.smcaps em { font-style: normal; text-transform: normal; font-size: 75%; }
 h1 { font-family: $highlight-fonts; font-size: 30px; line-height: 32px; text-align: center; }
 a { text-decoration: none; color: $link-color; }
 a:visited { color: darken($link-color, 15%); }

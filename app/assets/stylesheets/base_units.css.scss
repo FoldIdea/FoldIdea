@@ -23,26 +23,26 @@ body.base_unit_show {
   ul { position: absolute; list-style-type: none; margin: 0; padding: 0; }
   ul li { margin: 0; padding: 0; }
   ul.mg_ylabels {
-    left: 0; top: 8mm;
+      left: 0; top: 28px;
 
-    li { height: 10mm; vertical-align: top; font-size: 11px; }
+    li { position: absolute; top: 0mm; height: 10mm; vertical-align: top; font-size: 11px; }
   }
   ul.mg_yaxis {
     left: 6mm; top: 10mm;
 
-    li { margin-left: 7mm; width: 3mm; border-top: solid 1px black; height: calc(1mm - 1px); }
+    li { position: absolute; top: 0mm; margin-left: 7mm; width: 3mm; border-top: solid 1px black; height: calc(1mm - 1px); }
     li.five { margin-left: 4mm; width: 6mm; }
     li.ten { margin-left: 0mm; width: 10mm; }
   }
   ul.mg_xlabels {
     left: 11mm; top: 80mm;
 
-    li { float: left; width: 10mm; text-align: center; font-size: 11px; }
+    li { position: absolute; left: 0mm; width: 10mm; text-align: center; font-size: 11px; }
   }
   ul.mg_xaxis {
     left: 16mm; top: 70mm;
 
-    li { float: left; height: 3mm; border-left: solid 1px black; width: calc(1mm - 1px); }
+    li { position: absolute; left: 0mm; height: 3mm; border-left: solid 1px black; width: calc(1mm - 1px); }
     li.five { height: 6mm; }
     li.ten { height: 10mm; }
   }

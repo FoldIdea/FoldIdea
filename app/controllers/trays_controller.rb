@@ -3,6 +3,11 @@ class TraysController < ApplicationController
   # GET /trays/1.json
   def show
     @tray = Tray.find params[:id]
+
+    respond_to do |format|
+      format.html
+      format.pdf
+    end
   end
 
   # POST /trays

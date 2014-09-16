@@ -2,6 +2,6 @@
 <%= render 'tray_display', tray:@tray %>
 
 <p class="actions">
-	<%= link_to_function 'Print', 'window.print();' %> |
+  <%= link_to 'Print', tray_path(format: :pdf), target: '_blank' %> |
   <%= link_to 'Back', @tray.base_unit %>
 </p>

@@ -1,0 +1,36 @@
+------------------------------------------------------------------------------------------------------------------------
+Deployment Notes:
+------------------------------------------------------------------------------------------------------------------------
+  running locally:
+    Start ProgreSQL from Launchpad
+    Run from RubyMine - use debug of development
+
+  deploying to Heroku:
+    git push heroku master (or git push heroku {branch}:master)
+
+  uploading to GitHub:
+    git push origin master
+
+------------------------------------------------------------------------------------------------------------------------
+Services:
+------------------------------------------------------------------------------------------------------------------------
+  NameCheap: uname: rlamorea, pw: FI G R
+  Heroku: uname: rick@foldidea.com, pw: FI G R
+  GitHub: uname: rick@foldidea.com, pw: FIGR
+
+  PostreSQL commands to know:
+    \list - list all tables
+
+------------------------------------------------------------------------------------------------------------------------
+Development Notes:
+------------------------------------------------------------------------------------------------------------------------
+
+Using Postmark with Heroku to send mail:  http://www.meetup.com/sfruby/messages/69954042/
+
+One way to identify if touch is supported:
+  if (!("ontouchstart" in document.documentElement)) { document.documentElement.className += " no-touch"; }
+Note: might also want to check for mouse actions since that might mean dual-mode display (like a touch laptop)
+
+PDF Generation:
+  prawn - pdf generator -
+  gambas - prawn wrapper for simple respond_to handling (and prawn "views") - https://github.com/rtsinani/gambas

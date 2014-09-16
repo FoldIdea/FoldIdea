@@ -1,6 +1,6 @@
 module ApplicationHelper
   def site_name
-    '<span class="smcaps w_lt">Fold</span><span class="smcaps w_rt">Idea</span>'.html_safe
+    '<span class="smcaps w_lt">Fold</span><span class="smcaps w_rt">It<em>.co<em></span>'.html_safe
   end
 
   def title(page_title)

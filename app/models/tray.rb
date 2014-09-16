@@ -12,12 +12,12 @@ class Tray < ActiveRecord::Base
   end
 
   def file_size
-    gap_width = (base_unit.base_width * gap_percent)
-    (files * (base_unit.base_width + gap_width) ).round
+    gap_width = (base_unit.base_width.to_f * gap_percent)
+    (files * (base_unit.base_width.to_f + gap_width) + gap_width ).round
   end
 
   def rank_size
-    gap_length = (base_unit.base_length * gap_percent)
-    (ranks * (base_unit.base_length + gap_length) ).round
+    gap_length = (base_unit.base_length.to_f * gap_percent)
+    (ranks * (base_unit.base_length.to_f + gap_length) ).round
   end
 end
