@@ -7,6 +7,9 @@ Deployment Notes:
 
   deploying to Heroku:
     git push -f heroku
+  migrating the db:
+    heroku run rake db:migrate
+    heroku restart
 
   uploading to GitHub:
     git push origin master
@@ -28,6 +31,7 @@ Services:
     \dt or \list - list all tables
     \d {table name} - show table details
     \q - quit
+    \x auto - set the output format to automatically deal with screen size
   PostgreSQL queries:
     (all SQL commands in caps)
     SELECT * FROM {tablename}
