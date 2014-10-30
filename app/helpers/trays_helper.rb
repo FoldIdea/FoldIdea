@@ -45,13 +45,11 @@ module TraysHelper
     fold_offsets = [ 10, 5 ]
     width = dimension
     height = 20.mm
-    mtn_idx = 1
     case position
       when :top
         start_x += 20.mm
         styles[:bottom] = :valley
-        fold_offsets = [ 5, 5  ]
-        mtn_idx = 0
+        fold_offsets = [ 5, 5 ]
       when :bottom
         start_x += 20.mm
         styles[:top] = :valley
@@ -66,7 +64,6 @@ module TraysHelper
         width = 20.mm
         height = dimension
         fold_offsets = [ 5, 5 ]
-        mtn_idx = 0
     end
     fold_rectangle pdf, [ start_x, start_y ], width, height, styles
     offset_mm = 0
@@ -76,7 +73,7 @@ module TraysHelper
         when :top, :bottom then [ 0, offset_mm, width, offset_mm ]
         when :left, :right then [ offset_mm, 0, offset_mm, height ]
       end
-      fold_line pdf, [ start_x+offset_sx, start_y+offset_sy ], [ start_x+offset_ex, start_y+offset_ey ], (idx == mtn_idx ? :mountain : :valley)
+      fold_line pdf, [ start_x+offset_sx, start_y+offset_sy ], [ start_x+offset_ex, start_y+offset_ey ], :mountain
     end
   end
 
@@ -112,11 +109,11 @@ module TraysHelper
   end
 
   def tray_background(pdf, start_x, start_y, tray_width, tray_height, bg_image)
-    sx = start_x + 15.mm
-    sy = start_y + 15.mm
+    sx = start_x + 10.mm
+    sy = start_y + 10.mm
     img = bg_image[:file] || open(bg_image[:source])
-    tex = sx + tray_width + 10.mm
-    tey = sy + tray_height + 10.mm
+    tex = sx + tray_width + 20.mm
+    tey = sy + tray_height + 20.mm
     over_x = nil
     over_y = nil
     while sy < tey
@@ -125,7 +122,7 @@ module TraysHelper
         sx += bg_image[:width]
       end
       over_x = over_x || (sx - tex)
-      sx = start_x + 15.mm
+      sx = start_x + 10.mm
       sy += bg_image[:height]
     end
     over_y = sy - tey
@@ -134,11 +131,15 @@ module TraysHelper
     pdf.fill_color('ffffff')
     pdf.stroke_color('ffffff')
     if over_y > 0
-      pdf.fill_and_stroke { pdf.rectangle [ start_x + 15.mm, start_y + 25.mm + tray_height + over_y ], tray_width + 10.mm + over_x, over_y }
+      pdf.fill_and_stroke { pdf.rectangle [ start_x + 10.mm, start_y + 30.mm + tray_height + over_y ], tray_width + 20.mm + over_x, over_y }
     end
     if over_x > 0
-      pdf.fill_and_stroke { pdf.rectangle [ start_x + 25.mm + tray_width, start_y + 25.mm + tray_height ], over_x, tray_height + 10.mm }
+      pdf.fill_and_stroke { pdf.rectangle [ start_x + 30.mm + tray_width, start_y + 30.mm + tray_height ], over_x, tray_height + 20.mm }
     end
+    pdf.fill_and_stroke { pdf.rectangle [ start_x + 10.mm, start_y + 20.mm ], 5.mm, 10.mm }
+    pdf.fill_and_stroke { pdf.rectangle [ start_x + 10.mm, start_y + 30.mm + tray_height ], 5.mm, 10.mm }
+    pdf.fill_and_stroke { pdf.rectangle [ start_x + 25.mm + tray_width, start_y + 20.mm ], 5.mm, 10.mm }
+    pdf.fill_and_stroke { pdf.rectangle [ start_x + 25.mm + tray_width, start_y + 30.mm + tray_height ], 5.mm, 10.mm }
     pdf.stroke_color(lc)
     pdf.fill_color(fc)
   end
