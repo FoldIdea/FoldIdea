@@ -1,0 +1,13 @@
+<% title @user.display_handle %>
+<% body_style "uprof#{@welcome ? ' anim_hdr' : ''}" %>
+<h1><%= @welcome ? 'Welcome ' : '' %><%= @user.display_handle %></h1>
+
+<p class="ptxt">
+  <%= pretty_print @user.profile_text %>
+</p>
+
+<ul class="pick_list">
+  <li class="trays"><%= link_to 'Print Some Trays', base_units_path %></li>
+</ul>
+
+<p class="actions">More will be coming...</p>

@@ -1,5 +1,6 @@
 FoldIdea::Application.routes.draw do
   devise_for :users
+  get 'profile/:id', to: 'home#profile', as: :profile
   resources :base_units do
     resources :trays, shallow: true
   end

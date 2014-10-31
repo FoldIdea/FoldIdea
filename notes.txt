@@ -45,8 +45,8 @@ Services:
 Development Notes:
 ------------------------------------------------------------------------------------------------------------------------
 
-Using Postmark with Heroku to send email:  http://www.meetup.com/sfruby/messages/69954042/
-Using Sendgrid with Heroku to send email:  http://www.google.com/url?q=http%3A%2F%2Fhowilearnedrails.wordpress.com%2F2014%2F02%2F25%2Fsetting-up-email-in-a-rails-4-app-with-action-mailer-in-development-and-sendgrid-in-production-using-heroku%2Fcomment-page-1%2F&sa=D&sntz=1&usg=AFQjCNE7t6YC67Sp8nSYKF5z9GWWhSHH3w
+TODO: determine if views/confirmable can be removed - the test would be to change the confirmation mailer text and see
+TODO: ...whether the template in views/devise/confirmation is applied.  If so, confirmable is likely a dead folder.
 
 One way to identify if touch is supported:
   if (!("ontouchstart" in document.documentElement)) { document.documentElement.className += " no-touch"; }
