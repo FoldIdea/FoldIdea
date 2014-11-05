@@ -3,12 +3,4 @@
 <h1>Welcome to <%=site_name %></h1>
 <h2>Tools and Aids for Tabletop Gaming</h2>
 
-<ul class="pick_list">
-  <li class="trays" onclick="location='<%= base_units_path %>';">
-    <%= link_to 'Unit Trays', base_units_path %>
-    <div class="highlight">
-      <p>Unit Trays</p>
-    </div>
-  </li>
-  <li class="more">More to come...</li>
-</ul>
+<%= render 'main_pick_list' %>
