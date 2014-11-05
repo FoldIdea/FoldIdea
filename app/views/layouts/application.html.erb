@@ -19,11 +19,18 @@
     <!--<div id="zone" class="<%= yield(:zone_class).presence || "z_#{controller_name}" %>">-->
       <!--<%=h yield(:zone_name).presence || controller_name.titleize %>-->
     <!--</div>-->
-	  <%- if user_signed_in? -%>
-	    <%= link_to '', destroy_user_session_url, method:'delete', id:'acct', class:'w_login' %>
-	  <%- else -%>
-	    <%= link_to '', new_user_session_url, id:'acct', class:'w_logout' %>
-	  <%- end -%>
+      <div id='acct' class="<%= user_signed_in? ? 'w_login' : 'w_logout' %>">
+        <ul class="tpop">
+          <%- if user_signed_in? -%>
+              <li><%= link_to current_user.display_handle, profile_path(:id => current_user.to_param) %></li>
+              <li><%= link_to 'Manage Account', edit_user_registration_path %></li>
+              <li><%= link_to 'Log Out', destroy_user_session_url, method:'delete' %></li>
+          <%- else -%>
+              <li><%= link_to 'Log In', new_user_session_url %></li>
+              <li><%= link_to 'Create Account', new_user_registration_path %></li>
+          <%- end -%>
+        </ul>
+      </div>
   </div>
   <div class="hdr_rt"></div>
   <p class="notice"><%= notice %></p>

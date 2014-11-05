@@ -6,6 +6,10 @@
   <%= pretty_print @user.profile_text %>
 </p>
 
+<%- if @is_current_user -%>
+  <%= link_to "Change your password", edit_user_registration_path %>
+<%- end -%>
+
 <ul class="pick_list">
   <li class="trays"><%= link_to 'Print Some Trays', base_units_path %></li>
 </ul>

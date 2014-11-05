@@ -45,18 +45,82 @@
 }
 .anim_hdr #zone { display: none; }
 
-.pick_list {
-  margin: 15px 0 0; padding: 0; list-style-type: none; text-align: center;
+body.home {
+  background: #B1B1B1 image-url('home_bg.jpg') 45% 75px no-repeat; min-height: 1015px;
+  @include respond-to(web) { background-position: 44% 75px; background-size: 2050px; }
+  @include respond-to(tablet-ls) { background-position: 60% 115px; background-size: 1400px; min-height: 750px; }
+  @include respond-to(tablet) { background: white; }
+  @include respond-to(phone) { background: white; }
+  @include respond-to(phone-ls) { background: white; }
+}
 
-  li { margin: 0 0 15px; padding: 0; }
+h2 { font-size: 22px; font-weight: normal; text-align: center; }
+.pick_list {
+  margin: -205px 0 0 calc(100% - 170px); padding: 180px 0 4px;
+  width: 160px; height: 875px;
+  border-left: dotted 1px $foreground; border-right: solid 1px $foreground; background: rgba(255,255,255,0.5);
+  list-style-type: none;
+  @include respond-to(web) { height: 810px; }
+  @include respond-to(tablet-ls) { height: 550px; }
+  @include respond-to(tablet) { }
+  @include respond-to(phone) { }
+  @include respond-to(phone-ls) { }
+
+
+  li {
+    margin: 0; padding: 0;
+    cursor: pointer;
+
+    .highlight {
+      position: absolute; background: transparent;
+      border: solid 5px darken($border-color, 25%);
+
+      p {
+        margin: 0; padding: 6px 0;
+        background: rgba(255,255,255,0.5);
+        font-size: 25px; text-align: center;
+      }
+    }
+  }
+  li:hover .highlight, li.w_sel .highlight {
+    transform: none; -webkit-transform: none;
+    border-right: solid 5px darken($border-color, 25);
+    margin: 0; box-shadow: none;
+  }
   li a {
-    display: block;  padding: 5px 10px 5px 105px; border: solid 1px white; height: 100px;
-    line-height: 100px; font-size: 25px; color: black; }
-  li a .icon { float: left; height: 100px; width: 100px; margin-right: 10px; }
-  li a:hover, a:active { background-color: #eeeeee; font-weight: bold; text-decoration: none; border-color: rgba(128,128,128,0.5); box-shadow: 3px 3px 6px rgba(128,128,128,0.5); }
-  li a:active { box-shadow: 3px 3px 6px rgba(128,128,128,0.5) inset; }
+    display: block;  padding: 115px 6px 0; overflow: hidden;
+    border-top: solid 1px $border-color; border-bottom: solid 1px $border-color;
+    font-size: 20px; color: $foreground; text-align: center;
+  }
+  li:hover a, li:hover a:hover, li:hover a:active, li.w_sel a {
+    text-decoration: none;
+    background: white; border-top: solid 1px $foreground; border-bottom: solid 1px $foreground;
+    transform: skewY(-3deg) scaleX(0.95); -webkit-transform: skewY(-3deg) scaleX(0.95);
+    border-right: solid 1px $foreground;
+    margin: -3px 0 3px -3px;
+    box-shadow: 3px 1px 3px rgba(0,0,0,0.5);
+  }
 
   li.trays a {
-    background: transparent image-url('zone_icons.png') no-repeat;
+    background: transparent image-url('zone_icons.png') center -20px no-repeat; height: 25px;
   }
+  li.trays a:hover, li.trays a:active, li.trays.w_sel a {
+    background: white image-url('zone_icons.png') center -155px no-repeat;
+  }
+  li.trays .highlight {
+    top: 675px; left: calc(45% - 568px); width: 705px; height: 347px;
+    @include respond-to(web) { top: 633px; left: calc(44% - 508px); width: 656px; height: 323px; }
+    @include respond-to(tablet-ls) { top: 495px; left: calc(50% - 469px); width: 448px; height: 221px; }
+    @include respond-to(tablet) {  }
+    @include respond-to(phone) {  }
+    @include respond-to(phone-ls) {  }
+  }
+  li.trays:hover .highlight, li.trays .highlight:hover {
+    background: transparent image-url('home_trays_highlight.jpg') left top/100% no-repeat;
+  }
+
+  li.more { padding: 10px 0; font-size: 18px; border: none; text-align: center; cursor: default; }
+  li.more:hover { background: transparent; border: none; }
 }
+
+
